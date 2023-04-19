@@ -18,7 +18,7 @@
 
 	Camera:
 	<select id="cameraSelector">
-		<option value="environment" selected>Environment</option>
+		<option value="environment" selected="">Environment</option>
 		<option value="user">User</option>
 		<option value="back">Back</option>
 		<option value="front">Front</option>
@@ -57,13 +57,13 @@
 
 	Mode:
 	<select id="mode">
-		<option value="true" selected="">Normal</option>
-		<option value="false">Fast</option>
+		<option value="true">Normal</option>
+		<option value="false" selected="">Fast</option>
 	</select>
 	<br /><br />
 
-	<canvas id="canvas" width="480" height="640" style="display:none"></canvas>
-	<video id="v1" width="480" height="640"></video>
+	<canvas id="canvas" width="640" height="480" style="display:none"></canvas>
+	<video id="v1" width="640" height="480"></video>
 	
 	<br /><br />
 
@@ -80,7 +80,7 @@
 		const canvas = document.getElementById("canvas");
 		const resultElement = document.getElementById("result");
 
-		const ctx = canvas.getContext("2d", { willReadFrequently: true, desynchronized: true });
+		const ctx = canvas.getContext("2d", { willReadFrequently: true});
 		const video = document.getElementById("v1");
 		
 		//const video = document.createElement("video");
@@ -132,7 +132,7 @@
 			const code = readBarcodeFromCanvas(canvas, format.value, mode.value === 'true');
 			if (code.format) {
 				resultElement.innerText = code.format + ": " + code.text;
-				drawResult(code)
+				// drawResult(code)
 			} else {
 				resultElement.innerText = "No barcode found";
 			}
