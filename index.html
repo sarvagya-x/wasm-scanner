@@ -112,7 +112,7 @@
 		}
 
 		const processFrame = function () {
-			ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+			ctx.drawImage(video, 0, 0, 2*canvas.width, 2*canvas.height);
 
 			const code = readBarcodeFromCanvas(canvas, format.value, mode.value === 'true');
 			if (code.format) {
