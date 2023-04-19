@@ -54,6 +54,8 @@
 	<br /><br />
 
 	<canvas id="canvas" width="768" height="1366" style="display:none"></canvas>
+	<video id="v1" width="320" height="270"></video>
+	
 	<br /><br />
 
 	<div id="result"></div>
@@ -69,11 +71,14 @@
 		const canvas = document.getElementById("canvas");
 		const resultElement = document.getElementById("result");
 
-		const ctx = canvas.getContext("2d", { willReadFrequently: true });
-		const video = document.createElement("video");
-		video.setAttribute("id", "video");
-		video.setAttribute("width", canvas.width);
-		video.setAttribute("height", canvas.height);
+		const ctx = canvas.getContext("2d", { willReadFrequently: true, desynchronized: true });
+		const video = document.getElementId("v1");
+		
+		//const video = document.createElement("video");
+		//video.setAttribute("id", "video");
+		//video.setAttribute("width", canvas.width);
+		//video.setAttribute("height", canvas.height);
+		
 		video.setAttribute("autoplay", "");
 
 		function readBarcodeFromCanvas(canvas, format, mode) {
