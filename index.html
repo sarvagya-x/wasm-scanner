@@ -16,7 +16,8 @@
 	Camera:
 	<select id="cameraSelector">
 		
-		<option value="environment">Env</option>
+		<option value="environment">Environment</option>
+		<option value="user">User</option>
 		
 	</select>
 	&nbsp;&nbsp;
@@ -52,7 +53,7 @@
 	</select>
 	<br /><br />
 
-	<canvas id="canvas" width="768" height="1366"></canvas>
+	<canvas id="canvas" width="768" height="1366" style="display:none"></canvas>
 	<br /><br />
 
 	<div id="result"></div>
@@ -112,7 +113,7 @@
 		}
 
 		const processFrame = function () {
-			ctx.drawImage(video, 0, 0, 2*canvas.width, 2*canvas.height);
+			ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
 			const code = readBarcodeFromCanvas(canvas, format.value, mode.value === 'true');
 			if (code.format) {
