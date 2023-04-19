@@ -16,7 +16,7 @@
 	Camera:
 	<select id="cameraSelector">
 		
-		<option value="environment">Environment (Back)</option>
+		<option value="environment">Env</option>
 		
 	</select>
 	&nbsp;&nbsp;
@@ -126,7 +126,7 @@
 
 		const updateVideoStream = function (deviceId) {
 			navigator.mediaDevices
-				.getUserMedia({ video: { facingMode: deviceId }, audio: false })
+				.getUserMedia({ video: { facingMode: {exact: "environment"} }, audio: false })
 				.then(function (stream) {
 					video.srcObject = stream;
 					video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
